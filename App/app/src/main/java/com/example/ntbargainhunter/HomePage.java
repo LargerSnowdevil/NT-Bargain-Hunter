@@ -20,7 +20,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 if (menuItem.getItemId() == R.id.menuActionHome) {
-                    return false;
+                    return true;
                 } else if (menuItem.getItemId() == R.id.menuActionAccount) {
                         Intent i = new Intent(HomePage.this, UserBargainList.class);
                         startActivity(i);
