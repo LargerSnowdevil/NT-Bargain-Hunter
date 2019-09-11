@@ -23,9 +23,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <ListView
+            <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/tempLogInButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="goToSignInPage"
+                android:text="LogIn" />
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
