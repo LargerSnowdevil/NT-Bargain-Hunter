@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- nav menu tutorial: https://www.youtube.com/watch?v=wcE7IIHKfRg -->
+
+    <item
+    android:id="@+id/menuActionHome"
+    android:enabled="true"
+    android:icon="@drawable/ic_home"
+    android:title="Home"
+    app:showAsAction="always" />
+
+    <!-- figure out how to remove this one if the user is not logged in -->
+    <item
+    android:id="@+id/menuActionAccount"
+    android:enabled="true"
+    android:icon="@drawable/ic_account"
+    android:title="My Bargains"
+    app:showAsAction="always" />
+
+    <item
+    android:id="@+id/menuActionPost"
+    android:enabled="true"
+    android:icon="@drawable/ic_camera"
+    android:title="Post"
+    app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menuActionFavourites"
+        android:enabled="true"
+        android:icon="@drawable/ic_favourite"
+        android:title="Favourites"
+        app:showAsAction="always" />
+</menu>

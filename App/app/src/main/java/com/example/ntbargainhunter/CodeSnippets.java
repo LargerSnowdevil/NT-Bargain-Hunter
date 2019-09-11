@@ -1,3 +1,4 @@
+/*
 package com.example.ntbargainhunter;
 
 import android.content.Intent;
@@ -14,10 +15,13 @@ public class CodeSnippets {
     }
 
     //method for changing activity
-    public void goToClass(View v)/*need the view to call with an onClick() */ {
+    public void goToClass(View v) need the view to call with an onClick() {
         Intent i = new Intent(this, Destination.class);
         i.putExtra("exerciseType", "Walking");//will include extra data in the intent that will transfer between pages
         startActivity(i);
 
     }
+
+
 }
+*/
