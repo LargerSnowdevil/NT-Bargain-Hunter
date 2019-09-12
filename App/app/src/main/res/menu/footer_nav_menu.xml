@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- nav menu tutorial: https://www.youtube.com/watch?v=wcE7IIHKfRg -->
+    <!-- nav menu tutorial: https://www.youtube.com/watch?v=wcE7IIHKfRg
+     https://medium.com/@suragch/how-to-add-a-bottom-navigation-bar-in-android-958ed728ef6c -->
 
     <item
     android:id="@+id/menuActionHome"
