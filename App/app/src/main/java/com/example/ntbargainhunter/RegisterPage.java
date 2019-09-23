@@ -15,7 +15,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class RegisterPage extends AppCompatActivity {
@@ -56,23 +57,56 @@ public class RegisterPage extends AppCompatActivity {
         String username = usernameEntry.getText().toString();
         String password = passwordEntry.getText().toString();
         String confirmPassword = confirmPasswordEntry.getText().toString();
+        Boolean valid = true;
 
         //todo input validation
-
-        if (password.equals(confirmPassword)) {
-            mAuth.createUserWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        Intent i = new Intent(RegisterPage.this, HomePage.class);
-                        Toast.makeText(RegisterPage.this, "Signup Successful", Toast.LENGTH_SHORT).show();
-                        startActivity(i);
-                    } else {
-                        //todo what happens when the login fails
-                        Toast.makeText(RegisterPage.this, "Signup Failed", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+        if (username.equals("")) {
+            valid = false;
+            //todo note on screen that username is empty
         }
+        Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
+        Matcher mat = pattern.matcher(username);
+        if (!mat.matches()) {
+            valid = false;
+            //todo the email is not a valid format
+        }
+        if (username.length() > 20) {
+            valid = false;
+            //todo note on screen that username is to long
+        }
+        if (password.equals("")) {
+            valid = false;
+            //todo note on screen that password is empty
+        }
+        if (password.length() > 20) {
+            valid = false;
+            //todo note on screen that password is to long
+        }
+        if (confirmPassword.equals("")) {
+            valid = false;
+            //todo note on screen that confirm password is empty
+        }
+
+        if (valid) {
+            if (password.equals(confirmPassword)) {
+                mAuth.createUserWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Intent i = new Intent(RegisterPage.this, HomePage.class);
+                            Toast.makeText(RegisterPage.this, "Signup Successful", Toast.LENGTH_SHORT).show();
+                            startActivity(i);
+                        } else {
+                            //todo what happens when the login fails
+                            Toast.makeText(RegisterPage.this, "Signup Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            } else {
+                //todo if the passwords don't match
+            }
+        }
+
+
     }
 }

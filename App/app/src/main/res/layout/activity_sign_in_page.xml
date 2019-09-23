@@ -23,32 +23,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/facebookPlaceholder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Facebook" />
-
-                <TextView
-                    android:id="@+id/googlePlaceholder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Google" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/altSignInDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sign in with" />
-
             <TextView
                 android:id="@+id/signInEmailEntryDescription"
                 android:layout_width="match_parent"

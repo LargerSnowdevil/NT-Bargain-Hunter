@@ -16,7 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class SignInPage extends AppCompatActivity {
@@ -54,21 +55,48 @@ public class SignInPage extends AppCompatActivity {
     public void signIn(View v) {
         String username = usernameEntry.getText().toString();
         String password = passwordEntry.getText().toString();
+        Boolean valid = true;
 
         //todo input validation
+        if (username.equals("")) {
+            valid = false;
+            //todo note on screen that username is empty
+        }
+        Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
+        Matcher mat = pattern.matcher(username);
+        if (!mat.matches()) {
+            valid = false;
+            //todo the email is not a valid format
+        }
+        if (username.length() > 20) {
+            valid = false;
+            //todo note on screen that username is to long
+        }
+        if (password.equals("")) {
+            valid = false;
+            //todo note on screen that password is empty
+        }
+        if (password.length() > 20) {
+            valid = false;
+            //todo note on screen that password is to long
+        }
 
-        mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Intent i = new Intent(SignInPage.this, HomePage.class);
-                    Toast.makeText(SignInPage.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    startActivity(i);
-                } else {
-                    //todo what happens when the login fails
-                    Toast.makeText(SignInPage.this, "Login Failed", Toast.LENGTH_SHORT).show();
+        if (valid) {
+            mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Intent i = new Intent(SignInPage.this, HomePage.class);
+                        Toast.makeText(SignInPage.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        startActivity(i);
+                    } else {
+                        //todo what happens when the login fails
+                        Toast.makeText(SignInPage.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        }
+
+
     }
 }
