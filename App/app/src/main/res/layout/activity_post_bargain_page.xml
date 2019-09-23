@@ -7,8 +7,8 @@
     tools:context=".PostBargainPage">
 
     <ScrollView
-        android:layout_width="395dp"
-        android:layout_height="715dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -21,21 +21,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/postAddImageButton"
+            <Button
+                android:id="@+id/postBargainButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_camera" />
-
-            <EditText
-                android:id="@+id/postTitleEntry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Title"
-                android:inputType="textPersonName" />
+                android:text="Post Bargain" />
 
             <EditText
                 android:id="@+id/postDescription"
@@ -45,11 +37,6 @@
                 android:hint="Description"
                 android:inputType="textPersonName" />
 
-            <Spinner
-                android:id="@+id/postCatagorySpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
             <EditText
                 android:id="@+id/postExpiryDateEntry"
                 android:layout_width="match_parent"
@@ -58,11 +45,24 @@
                 android:hint="Expiry Date"
                 android:inputType="date" />
 
-            <Button
-                android:id="@+id/postBargainButton"
+            <EditText
+                android:id="@+id/postTitleEntry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Post Bargain" />
+                android:ems="10"
+                android:hint="Title"
+                android:inputType="textPersonName" />
+
+            <ImageButton
+                android:id="@+id/postAddImageButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <Spinner
+                android:id="@+id/postCatagorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

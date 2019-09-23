@@ -19,7 +19,6 @@ public class SignInPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText usernameEntry;
     private EditText passwordEntry;
-    private Button signInButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,6 @@ public class SignInPage extends AppCompatActivity {
 
         usernameEntry = findViewById(R.id.signInEmailEntry);
         passwordEntry = findViewById(R.id.signInPasswordEntry);
-        signInButton = findViewById(R.id.signInButton);
     }
 
     @Override
