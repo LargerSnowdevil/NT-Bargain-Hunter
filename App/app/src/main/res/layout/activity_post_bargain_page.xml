@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".PostBargainPage">
 
-<<<<<<< HEAD
 <!--    <android.support.v7.widget.Toolbar-->
 <!--        android:id="@+id/new_post_toolbar"-->
 <!--        android:layout_width="match_parent"-->
@@ -48,11 +47,6 @@
         android:id="@+id/post_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-=======
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
->>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -100,7 +94,6 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent">-->
 
-<<<<<<< HEAD
 <!--        <LinearLayout-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
@@ -119,18 +112,6 @@
 <!--                android:ems="10"-->
 <!--                android:hint="Title"-->
 <!--                android:inputType="textPersonName" />-->
-=======
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/postBargainButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Post Bargain" />
->>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
 
 <!--            <EditText-->
 <!--                android:id="@+id/postDescription"-->
@@ -140,7 +121,6 @@
 <!--                android:hint="Description"-->
 <!--                android:inputType="textPersonName" />-->
 
-<<<<<<< HEAD
 <!--            <Spinner-->
 <!--                android:id="@+id/postCatagorySpinner"-->
 <!--                android:layout_width="match_parent"-->
@@ -161,34 +141,4 @@
 <!--                android:text="Post Bargain" />-->
 <!--        </LinearLayout>-->
 <!--    </ScrollView>-->
-=======
-            <EditText
-                android:id="@+id/postExpiryDateEntry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Expiry Date"
-                android:inputType="date" />
-
-            <EditText
-                android:id="@+id/postTitleEntry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Title"
-                android:inputType="textPersonName" />
-
-            <ImageButton
-                android:id="@+id/postAddImageButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_camera" />
-
-            <Spinner
-                android:id="@+id/postCatagorySpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </ScrollView>
->>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
 </android.support.constraint.ConstraintLayout>

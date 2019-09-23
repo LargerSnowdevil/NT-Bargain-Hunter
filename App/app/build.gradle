@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 
 
 android {
@@ -27,11 +26,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-<<<<<<< HEAD
 //    implementation 'com.google.firebase:firebase-auth:19.0.0'
-=======
-    implementation 'com.google.firebase:firebase-auth:16.0.5'
->>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

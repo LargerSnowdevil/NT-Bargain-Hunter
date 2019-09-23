@@ -2,12 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.ntbargainhunter">
-<<<<<<< HEAD
-=======
-    
-    <uses-permission android:name="android.permission.INTERNET" />
-
->>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

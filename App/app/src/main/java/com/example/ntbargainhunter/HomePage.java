@@ -8,47 +8,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+public class HomePage extends AppCompatActivity {
 
-import com.example.ntbargainhunter.Adapter.RecyclerViewHorizontalListAdapter;
-import com.example.ntbargainhunter.Model.Category;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
-<<<<<<< HEAD
 //    private FirebaseFirestore firebaseFirestore;
 
-=======
-public class HomePage extends AppCompatActivity {
-    private List<Category> categoryList = new ArrayList<>();
-    private RecyclerView categoryRecyclerView;
-    private RecyclerViewHorizontalListAdapter categoryAdapter;
-    
->>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-<<<<<<< HEAD
 //    firebaseFirestore = firebaseFirestore.getInstance();
 
 
-=======
-        categoryRecyclerView = findViewById(R.id.idRecyclerViewHorizontalList);
-        // add a divider after each item for more clarity
-        categoryRecyclerView.addItemDecoration(new DividerItemDecoration(HomePage.this, LinearLayoutManager.HORIZONTAL));
-        categoryAdapter = new RecyclerViewHorizontalListAdapter(categoryList, getApplicationContext());
-        LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(HomePage.this, LinearLayoutManager.HORIZONTAL, false);
-        categoryRecyclerView.setLayoutManager(horizontalLayoutManager);
-        categoryRecyclerView.setAdapter(categoryAdapter);
-        populateCategoryList();
-        
->>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
         BottomNavigationView footerNavBar = findViewById(R.id.homePageFooterNav);
         footerNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -71,26 +42,9 @@ public class HomePage extends AppCompatActivity {
         });
     }
 
-
-    private void populateCategoryList(){
-        Category automotive = new Category("Automotive", R.drawable.icons8_car_service_80);
-        Category technology = new Category("Technology", R.drawable.icons8_laptop_80);
-        Category shed = new Category("Shed", R.drawable.icons8_home_automation_80);
-        Category fashion = new Category("Fashion", R.drawable.icons8_clothes_64);
-        categoryList.add(automotive);
-        categoryList.add(technology);
-        categoryList.add(shed);
-        categoryList.add(fashion);
-        categoryAdapter.notifyDataSetChanged();
-    }
-    
-    
-    
-    
     public void goToBargainDetailPage(View v) {
         Intent i = new Intent(this, DisplayBargainPage.class);
         // todo add code to tell next page what data to load
         startActivity(i);
     }
 }
-

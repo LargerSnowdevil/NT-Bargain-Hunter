@@ -19,45 +19,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context="com.example.ntbargainhunter.HomePage.HomePage">
-
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/searchBarEntry"
                 android:layout_width="match_parent"
-                android:layout_height="62dp"
+                android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Search"
                 android:inputType="textPersonName" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/idRecyclerViewHorizontalList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-
-            <GridView
-                android:id="@+id/gridview"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="577dp"
-                android:columnWidth="100dp"
-                android:gravity="center"
-                android:horizontalSpacing="10dp"
-                android:numColumns="auto_fit"
-                android:stretchMode="spacingWidthUniform"
-                android:verticalSpacing="30dp" />
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <!-- todo maybe change this section to be a scrollable list or use a scrollable horizontal collection of textviews/pictures -->
+                    <TextView
+                        android:id="@+id/catagory1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Catagory 1" />
+
+                    <TextView
+                        android:id="@+id/catagory2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Catagory 2" />
+
+                    <TextView
+                        android:id="@+id/catagory3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Catagory 3" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="goToBargainDetailPage" />
 
         </LinearLayout>
-        </RelativeLayout>
     </ScrollView>
 
     <android.support.design.widget.BottomNavigationView
