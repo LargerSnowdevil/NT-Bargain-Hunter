@@ -6,120 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".PostBargainPage">
 
-<<<<<<< HEAD
-<!--    <android.support.v7.widget.Toolbar-->
-<!--        android:id="@+id/new_post_toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-<!--        android:background="@color/colorPrimary"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"></android.support.v7.widget.Toolbar>-->
-
-    <ImageView
-        android:id="@+id/new_post_image"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_post_toolbar"
-        app:srcCompat="@drawable/ic_camera"
-        tools:ignore="UnknownId,VectorDrawableCompat" />
-
-    <EditText
-        android:id="@+id/new_post_desc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="describe"
-        android:inputType="textMultiLine"
-        android:maxLength="125"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_post_image" />
-
-    <Button
-        android:id="@+id/post_btn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-=======
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
->>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/colorAccent"
-        android:padding="16dp"
-        android:text="post blog"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_post_desc" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ProgressBar
-        android:id="@+id/new_post_progress"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/new_post_image" />
-
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="invisible" />
-
-    <!--    <ScrollView-->
-<!--        android:layout_width="395dp"-->
-<!--        android:layout_height="715dp"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginEnd="8dp"-->
-<!--        android:layout_marginBottom="8dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<<<<<<< HEAD
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical" >-->
-
-<!--            <ImageButton-->
-<!--                android:id="@+id/postAddImageButton"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:srcCompat="@android:drawable/ic_menu_camera" />-->
-
-<!--            <EditText-->
-<!--                android:id="@+id/postTitleEntry"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:ems="10"-->
-<!--                android:hint="Title"-->
-<!--                android:inputType="textPersonName" />-->
-=======
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -130,38 +28,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Post Bargain" />
->>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
 
-<!--            <EditText-->
-<!--                android:id="@+id/postDescription"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:ems="10"-->
-<!--                android:hint="Description"-->
-<!--                android:inputType="textPersonName" />-->
+            <EditText
+                android:id="@+id/postDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Description"
+                android:inputType="textPersonName" />
 
-<<<<<<< HEAD
-<!--            <Spinner-->
-<!--                android:id="@+id/postCatagorySpinner"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-
-<!--            <EditText-->
-<!--                android:id="@+id/postExpiryDateEntry"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:ems="10"-->
-<!--                android:hint="Expiry Date"-->
-<!--                android:inputType="date" />-->
-
-<!--            <Button-->
-<!--                android:id="@+id/postBargainButton"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Post Bargain" />-->
-<!--        </LinearLayout>-->
-<!--    </ScrollView>-->
-=======
             <EditText
                 android:id="@+id/postExpiryDateEntry"
                 android:layout_width="match_parent"
@@ -190,5 +65,4 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
->>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
 </android.support.constraint.ConstraintLayout>

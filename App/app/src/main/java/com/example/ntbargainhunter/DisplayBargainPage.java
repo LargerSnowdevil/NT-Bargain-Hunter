@@ -1,9 +1,7 @@
 package com.example.ntbargainhunter;
 
-
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-
+import android.os.Bundle;
 
 public class DisplayBargainPage extends AppCompatActivity {
 
