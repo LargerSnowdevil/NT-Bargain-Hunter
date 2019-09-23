@@ -1,10 +1,10 @@
 package com.example.ntbargainhunter;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -19,16 +19,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+<<<<<<< HEAD
+//    private FirebaseFirestore firebaseFirestore;
+
+=======
 public class HomePage extends AppCompatActivity {
     private List<Category> categoryList = new ArrayList<>();
     private RecyclerView categoryRecyclerView;
     private RecyclerViewHorizontalListAdapter categoryAdapter;
     
+>>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+<<<<<<< HEAD
+//    firebaseFirestore = firebaseFirestore.getInstance();
+
+
+=======
         categoryRecyclerView = findViewById(R.id.idRecyclerViewHorizontalList);
         // add a divider after each item for more clarity
         categoryRecyclerView.addItemDecoration(new DividerItemDecoration(HomePage.this, LinearLayoutManager.HORIZONTAL));
@@ -38,6 +48,7 @@ public class HomePage extends AppCompatActivity {
         categoryRecyclerView.setAdapter(categoryAdapter);
         populateCategoryList();
         
+>>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
         BottomNavigationView footerNavBar = findViewById(R.id.homePageFooterNav);
         footerNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

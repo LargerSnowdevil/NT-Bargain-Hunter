@@ -1,9 +1,13 @@
 package com.example.ntbargainhunter;
 
 import android.content.Intent;
+<<<<<<< HEAD
+=======
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+>>>>>>> 758a0a45ecd0e52493fb6c05631e789cec139728
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +18,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+
+
 
 public class SignInPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
