@@ -7,8 +7,8 @@
     tools:context=".SignInPage">
 
     <ScrollView
-        android:layout_width="395dp"
-        android:layout_height="715dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -21,7 +21,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,6 +84,13 @@
                 android:onClick="signIn"
                 android:text="Sign In" />
 
+            <Button
+                android:id="@+id/goToRegisterPageButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="goToRegisterPage"
+                android:text="Register" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -96,13 +103,6 @@
                     android:layout_weight="1"
                     android:text="I Forgot" />
 
-                <TextView
-                    android:id="@+id/registerPromp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="goToRegisterPage"
-                    android:text="Regester" />
             </LinearLayout>
 
         </LinearLayout>
