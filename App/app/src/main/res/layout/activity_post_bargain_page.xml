@@ -6,63 +6,139 @@
     android:layout_height="match_parent"
     tools:context=".PostBargainPage">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+<!--    <android.support.v7.widget.Toolbar-->
+<!--        android:id="@+id/new_post_toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"></android.support.v7.widget.Toolbar>-->
+
+    <ImageView
+        android:id="@+id/new_post_image"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_post_toolbar"
+        app:srcCompat="@drawable/ic_camera"
+        tools:ignore="UnknownId,VectorDrawableCompat" />
+
+    <EditText
+        android:id="@+id/new_post_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="describe"
+        android:inputType="textMultiLine"
+        android:maxLength="125"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_post_image" />
+
+    <Button
+        android:id="@+id/post_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/colorAccent"
+        android:padding="16dp"
+        android:text="post blog"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/new_post_desc" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <ProgressBar
+        android:id="@+id/new_post_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/new_post_image" />
 
-            <Button
-                android:id="@+id/postBargainButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Post Bargain" />
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible" />
 
-            <EditText
-                android:id="@+id/postDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Description"
-                android:inputType="textPersonName" />
+    <!--    <ScrollView-->
+<!--        android:layout_width="395dp"-->
+<!--        android:layout_height="715dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-            <EditText
-                android:id="@+id/postExpiryDateEntry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Expiry Date"
-                android:inputType="date" />
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical" >-->
 
-            <EditText
-                android:id="@+id/postTitleEntry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Title"
-                android:inputType="textPersonName" />
+<!--            <ImageButton-->
+<!--                android:id="@+id/postAddImageButton"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@android:drawable/ic_menu_camera" />-->
 
-            <ImageButton
-                android:id="@+id/postAddImageButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_camera" />
+<!--            <EditText-->
+<!--                android:id="@+id/postTitleEntry"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Title"-->
+<!--                android:inputType="textPersonName" />-->
 
-            <Spinner
-                android:id="@+id/postCatagorySpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </ScrollView>
+<!--            <EditText-->
+<!--                android:id="@+id/postDescription"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Description"-->
+<!--                android:inputType="textPersonName" />-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/postCatagorySpinner"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/postExpiryDateEntry"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Expiry Date"-->
+<!--                android:inputType="date" />-->
+
+<!--            <Button-->
+<!--                android:id="@+id/postBargainButton"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Post Bargain" />-->
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
 </android.support.constraint.ConstraintLayout>
