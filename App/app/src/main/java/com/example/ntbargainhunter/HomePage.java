@@ -1,19 +1,24 @@
 package com.example.ntbargainhunter;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
 public class HomePage extends AppCompatActivity {
 
+//    private FirebaseFirestore firebaseFirestore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+//    firebaseFirestore = firebaseFirestore.getInstance();
+
 
         BottomNavigationView footerNavBar = findViewById(R.id.homePageFooterNav);
         footerNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
