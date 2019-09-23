@@ -22,6 +22,7 @@ public class CodeSnippets {
 
     }
 
+    Toast.makeText(this, "Message", Toast.LENGTH_SHORT).show();
 
 }
 */
