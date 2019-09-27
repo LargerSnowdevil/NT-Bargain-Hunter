@@ -69,5 +69,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/footer_nav_menu" />
+        app:menu="@menu/foote    r_nav_menu"
+        app:itemBackground="@color/cardview_light_background"/>
 </android.support.constraint.ConstraintLayout>
