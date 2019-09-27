@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="62dp"
                 android:ems="10"
-                android:hint="Search"
+                android:hint="Search Bargains"
                 android:inputType="textPersonName" />
 
             <android.support.v7.widget.RecyclerView
@@ -64,9 +64,10 @@
         android:id="@+id/homePageFooterNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:itemBackground="@color/cardview_light_background"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/footer_nav_menu"
-        app:itemBackground="@color/cardview_light_background"/>
+        app:menu="@menu/footer_nav_menu" />
 </android.support.constraint.ConstraintLayout>
