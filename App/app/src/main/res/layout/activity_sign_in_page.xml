@@ -61,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="example@example.com"
+                android:drawableLeft= "@drawable/ic_email_black_18dp"
                 android:inputType="textEmailAddress" />
 
             <TextView
@@ -101,10 +102,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="I Forgot" />
+                    android:text="Forgot Password" />
 
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/userPageFooterNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@color/cardview_light_background"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/footer_nav_menu" />
 </android.support.constraint.ConstraintLayout>

@@ -46,11 +46,6 @@ public class SignInPage extends AppCompatActivity {
         }
     }
 
-    public void goToRegisterPage(View v) {
-        Intent i = new Intent(this, RegisterPage.class);
-        startActivity(i);
-    }
-
     public void signIn(View v) {
         String username = usernameEntry.getText().toString();
         String password = passwordEntry.getText().toString();
@@ -71,4 +66,14 @@ public class SignInPage extends AppCompatActivity {
             }
         });
     }
+    //if user can not be found on database redirect to register-user page
+    public void goToRegisterPage(View v) {
+        Intent i = new Intent(this, RegisterPage.class);
+        startActivity(i);
+    }
+
+    /**
+     * Form validations
+     * */
+
 }

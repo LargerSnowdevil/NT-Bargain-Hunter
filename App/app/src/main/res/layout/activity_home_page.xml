@@ -19,9 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context="com.example.ntbargainhunter.HomePage.HomePage">
@@ -36,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="62dp"
                 android:ems="10"
+                android:drawableLeft="@drawable/ic_search_black_24dp"
                 android:hint="Search Bargains"
                 android:inputType="textPersonName" />
 
@@ -69,6 +68,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/foote    r_nav_menu"
-        app:itemBackground="@color/cardview_light_background"/>
-</android.support.constraint.ConstraintLayout>
+        app:menu="@menu/footer_nav_menu"/>
+     </android.support.constraint.ConstraintLayout>

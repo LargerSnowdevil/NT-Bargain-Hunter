@@ -51,7 +51,8 @@ public class HomePage extends AppCompatActivity {
                     Intent i = new Intent(HomePage.this, PostBargainPage.class);
                     startActivity(i);
                 } else if (menuItem.getItemId() == R.id.menuActionFavourites) {
-                    // todo add something here
+                    Intent i = new Intent(HomePage.this, FavoriteBargain.class);
+                    startActivity(i);
                 } else {
                     System.out.println("ERROR:-- Footer navigation selection not recognized");
                 }

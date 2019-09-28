@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">NT Bargain Hunter</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla hendrerit ac risus vel accumsan. Suspendisse posuere dapibus purus, non blandit magna malesuada vitae. Ut sed ligula ac elit ullamcorper convallis. Duis rhoncus nulla vitae justo malesuada, dignissim vehicula nunc porta. Nam tristique ut nunc vitae viverra. Cras neque lectus, viverra quis fermentum at, vehicula ac urna. Donec id suscipit lacus, consectetur molestie neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin a velit non risus iaculis interdum. </string>
-    <string name="catagory_1">Catagory 1</string>
-    <string name="catagory_2">Catagory 2</string>
-    <string name="catagory_3">Catagory 3</string>
-    <string name="catagory_4">Catagory 4</string>
+    <string name="catagory_1">Category 1</string>
+    <string name="catagory_2">Category 2</string>
+    <string name="catagory_3">Category 3</string>
+    <string name="catagory_4">Category 4</string>
+    <string name="facebook_app_id">[APP_ID]</string>
+    <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
 </resources>

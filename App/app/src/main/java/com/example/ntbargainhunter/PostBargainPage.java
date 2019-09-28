@@ -153,7 +153,7 @@ public class PostBargainPage extends AppCompatActivity {
                                             finish();
 
                                         }else{
-
+                                          System.out.println("Action could not be completed this time.");
 
                                         }
 

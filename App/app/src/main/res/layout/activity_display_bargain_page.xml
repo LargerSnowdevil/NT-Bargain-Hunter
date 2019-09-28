@@ -97,4 +97,14 @@
                 android:text="Report" />
         </LinearLayout>
     </ScrollView>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/homePageFooterNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@color/cardview_light_background"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/footer_nav_menu"/>
 </android.support.constraint.ConstraintLayout>

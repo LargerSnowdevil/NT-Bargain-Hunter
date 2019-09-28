@@ -35,7 +35,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="describe"
+        android:hint="Please provide a brief description of item"
         android:inputType="textMultiLine"
         android:maxLength="125"
         android:padding="16dp"
@@ -141,4 +141,14 @@
 <!--                android:text="Post Bargain" />-->
 <!--        </LinearLayout>-->
 <!--    </ScrollView>-->
-</android.support.constraint.ConstraintLayout>
+<android.support.design.widget.BottomNavigationView
+android:id="@+id/userPageFooterNav"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+app:itemBackground="@color/cardview_light_background"
+app:labelVisibilityMode="labeled"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:menu="@menu/footer_nav_menu" />
+    </android.support.constraint.ConstraintLayout>
