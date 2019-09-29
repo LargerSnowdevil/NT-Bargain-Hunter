@@ -146,7 +146,8 @@ public class RegisterPage extends AppCompatActivity {
                         startActivity(i);
                     } else {
                         //todo what happens when the login fails
-                        Toast.makeText(RegisterPage.this, "Sign-up Failed", Toast.LENGTH_SHORT).show();
+                        // answer : show the error to user on the screen
+                        Toast.makeText(RegisterPage.this, "Signup Failed", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -163,4 +164,28 @@ public class RegisterPage extends AppCompatActivity {
         //mDatabase.child("users").child(userId).child("username").setValue(name);
 
     }
+    // user can cancel registration process
+    public void cancel(View v) {
+        Intent i = new Intent(RegisterPage.this, SignInPage.class);
+        startActivity(i);
+    }
+
+    public String getText() {
+        String EditText = this.getText();
+        return EditText;
+    }
+    //user clears form input
+    public void clearForm(View v) {
+        EditText firstField = (EditText)this.findViewById(R.id.registerPasswordEntry);
+        EditText secondField = (EditText)this.findViewById(R.id.registerConfirmPasswordEntry);
+        EditText thirdField = (EditText)this.findViewById(R.id.registerNameEntry);
+        EditText fourthField = (EditText)this.findViewById(R.id.registerEmailEntry);
+        //...etc...
+        if (firstField != null) firstField.setText("");
+        if (secondField != null) secondField.setText("");
+        if (secondField != null) thirdField.setText("");
+        if (secondField != null) fourthField.setText("");
+
+    }
+
 }

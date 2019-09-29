@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -22,7 +23,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 
 public class SignInPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -94,18 +94,17 @@ public class SignInPage extends AppCompatActivity {
             passwordError.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }
 
-        if (valid) {
-            mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        Intent i = new Intent(SignInPage.this, HomePage.class);
-                        Toast.makeText(SignInPage.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                        startActivity(i);
-                    } else {
-                        //todo what happens when the login fails
-                        Toast.makeText(SignInPage.this, "Login Failed", Toast.LENGTH_SHORT).show();
-                    }
+        mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Intent i = new Intent(SignInPage.this, HomePage.class);
+                    Toast.makeText(SignInPage.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "createUserWithEmail:success");
+                    startActivity(i);
+                } else {
+                    //todo what happens when the login fails
+                    Toast.makeText(SignInPage.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
             });
         }

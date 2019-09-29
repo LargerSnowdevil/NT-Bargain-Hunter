@@ -7,10 +7,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -55,8 +57,33 @@ public class PostBargainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_bargain_page);
 
+        //navigation option for bottom menu
+        BottomNavigationView footerNavBar = findViewById(R.id.homePageFooterNav);
+        footerNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.menuActionPost) {
+                    return true;
+                } else if (menuItem.getItemId() == R.id.menuActionAccount) {
+                    Intent i = new Intent(PostBargainPage.this, UserBargainList.class);
+                    startActivity(i);
+                } else if (menuItem.getItemId() == R.id.menuActionPost) {
+                    Intent i = new Intent(PostBargainPage.this, PostBargainPage.class);
+                    startActivity(i);
+                } else if (menuItem.getItemId() == R.id.menuActionFavourites) {
+                    Intent i = new Intent(PostBargainPage.this, FavoriteBargain.class);
+                    startActivity(i);
+                } else {
+                    System.out.println("ERROR:-- Footer navigation selection not recognized");
+                }
+                return false;
+            }
+        });
+
+        //Posting an item
+
         storageReference = FirebaseStorage.getInstance().getReference();
-        firebaseFirestore=firebaseFirestore.getInstance();
+        firebaseFirestore= FirebaseFirestore.getInstance();
 //        firebaseAuth = FirebaseAuth.getInstance();
 
 //        current_user_id = firebaseAuth.getCurrentUser().getUid();
@@ -137,10 +164,6 @@ public class PostBargainPage extends AppCompatActivity {
 //                                Task<Uri>result=task.getResult().getMetadata().getReference().getDownloadUrl();
 //                                String downloadUri= task.getResult().getUploadSessionUri().toString();
 
-
-
-
-
                                 firebaseFirestore.collection("posts").add(postImageUri).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentReference> task) {
@@ -158,37 +181,22 @@ public class PostBargainPage extends AppCompatActivity {
                                         }
 
                                         newPostProgress.setVisibility(View.INVISIBLE);
-
-
                                     }
                                 });
 
                             }else{
-
                                 newPostProgress.setVisibility(View.INVISIBLE);
-
-
                             }
-
-
-
                         }
 
 
 
 
                     });
-
-
                 }
             }
                 });
             }
-
-
-
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
