@@ -28,26 +28,43 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/facebookPlaceholder"
-                    android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/signInWithFacebook"
+                    android:layout_marginTop="50dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Facebook" />
-
-                <TextView
-                    android:id="@+id/googlePlaceholder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Google" />
+                    android:textColor="@color/colorAccentBlue"
+                    android:onClick="signIn"
+                    android:text="@string/LogInFB"/>
             </LinearLayout>
-
             <TextView
-                android:id="@+id/altSignInDescription"
+                android:id="@+id/signInTextHeading"
                 android:layout_width="match_parent"
+                android:layout_marginLeft="190dp"
+                android:textColor="@color/colorAccentBlue"
                 android:layout_height="wrap_content"
-                android:text="Sign in with" />
+                android:text="OR" />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/facebookPlaceholder"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight=""-->
+<!--                    android:text="Facebook" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/googlePlaceholder"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Google" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/altSignInDescription"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Sign in with" />-->
 
             <TextView
                 android:id="@+id/signInEmailEntryDescription"
@@ -82,6 +99,7 @@
                 android:id="@+id/signInButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorAccentBlue"
                 android:onClick="signIn"
                 android:text="Sign In" />
 
@@ -89,6 +107,7 @@
                 android:id="@+id/goToRegisterPageButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorAccentBlue"
                 android:onClick="goToRegisterPage"
                 android:text="Register" />
 
@@ -102,6 +121,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/colorAccentBlue"
                     android:text="Forgot Password" />
 
             </LinearLayout>
