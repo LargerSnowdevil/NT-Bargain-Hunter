@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,11 +19,11 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 
-
 public class SignInPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText usernameEntry;
     private EditText passwordEntry;
+    private String TAG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class SignInPage extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Intent i = new Intent(SignInPage.this, HomePage.class);
                     Toast.makeText(SignInPage.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "createUserWithEmail:success");
                     startActivity(i);
                 } else {
                     //todo what happens when the login fails

@@ -24,6 +24,8 @@ public class FavoriteBargain extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_bargain_favorite);
+        this.setTitle("Your favourite items");
+        this.getTitle();
 
         //favoriteItems=findViewById(R.id.menuActionFavourites);
       //  favoriteItems.setOnClickListener();
