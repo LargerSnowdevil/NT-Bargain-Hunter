@@ -111,26 +111,10 @@ public class SignInPage extends AppCompatActivity {
 
 
     }
-
     //if user can not be found on database redirect to register-user page
     public void goToRegisterPage(View v) {
         Intent i = new Intent(this, RegisterPage.class);
         startActivity(i);
-    }
-
-    public void goToForgotPasswordPage(View v) {
-        Intent intent = new Intent(this, ForgotPasswordPage.class);
-
-        String username = usernameEntry.getText().toString();
-
-        //if the login is a valid email pack it as an extra to place in the email field on the next page
-        Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
-        Matcher mat = pattern.matcher(username);
-        if (mat.matches()) {
-            intent.putExtra("email", username);
-        }
-
-        startActivity(intent);
     }
 
     /**
