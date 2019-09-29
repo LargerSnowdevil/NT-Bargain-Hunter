@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,10 +26,15 @@ import java.util.regex.Pattern;
 
 public class RegisterPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
+
     private EditText usernameEntry;
+    private EditText nameEntry;
     private EditText passwordEntry;
     private EditText confirmPasswordEntry;
+
     private TextView usernameError;
+    private TextView nameError;
     private TextView passwordError;
     private TextView confirmPasswordError;
 
@@ -37,11 +44,15 @@ public class RegisterPage extends AppCompatActivity {
         setContentView(R.layout.activity_register_page);
 
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         usernameEntry = findViewById(R.id.registerEmailEntry);
+        nameEntry = findViewById(R.id.registerNameEntry);
         passwordEntry = findViewById(R.id.registerPasswordEntry);
         confirmPasswordEntry = findViewById(R.id.registerConfirmPasswordEntry);
+
         usernameError = findViewById(R.id.registerEmailProblemDecription);
+        nameError = findViewById(R.id.registerNameProblemDescription);
         passwordError = findViewById(R.id.registerPasswordProblemDescription);
         confirmPasswordError = findViewById(R.id.registerConfirmPasswordProblemDescription);
     }
@@ -64,8 +75,10 @@ public class RegisterPage extends AppCompatActivity {
 
     public void register(View v){
         String username = usernameEntry.getText().toString();
+        String name = nameEntry.getText().toString();
         String password = passwordEntry.getText().toString();
         String confirmPassword = confirmPasswordEntry.getText().toString();
+
         Boolean valid = true;
 
         //todo input validation
@@ -88,6 +101,12 @@ public class RegisterPage extends AppCompatActivity {
             //note on screen that username is to long
             usernameError.setText("E-mail must be less than 30 characters.");
             usernameError.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        }
+        if (name.length() > 20) {
+            valid = false;
+            //note on screen that username is to long
+            nameError.setText("Name must be less than 20 characters.");
+            nameError.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }
         if (password.equals("")) {
             valid = false;
@@ -120,16 +139,28 @@ public class RegisterPage extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         Intent i = new Intent(RegisterPage.this, HomePage.class);
-                        Toast.makeText(RegisterPage.this, "Signup Successful", Toast.LENGTH_SHORT).show();
+
+                        addUserInfoToDatabase(task.getResult().getUser().getUid(), nameEntry.getText().toString(), usernameEntry.getText().toString());
+
+                        Toast.makeText(RegisterPage.this, "Sign-up Successful", Toast.LENGTH_SHORT).show();
                         startActivity(i);
                     } else {
                         //todo what happens when the login fails
-                        Toast.makeText(RegisterPage.this, "Signup Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterPage.this, "Sign-up Failed", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         }
 
+
+    }
+
+    private void addUserInfoToDatabase(String userID, String name, String email) {
+        User user = new User(name, email);
+        mDatabase.child("Users").child(userID).setValue(user);
+
+        // for single data point change
+        //mDatabase.child("users").child(userId).child("username").setValue(name);
 
     }
 }
