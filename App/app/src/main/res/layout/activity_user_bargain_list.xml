@@ -26,42 +26,13 @@
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-             <TextView android:id="@+id/loginTextHeading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-                 android:layout_marginTop="100dp"
-                 android:textColor="@color/colorPrimary"
-                 android:textFontWeight="500"
-                 android:layout_marginLeft="30dp"
-            android:text="@string/LogInText"/>
+
             <Button
                 android:id="@+id/tempLogInButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:textColor="@color/colorAccentBlue"
-                android:gravity="center_horizontal"
                 android:onClick="goToSignInPage"
-                android:text="@string/LogIn" />
-            <TextView android:id="@+id/postDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_marginTop="30dp"
-                android:textFontWeight="500"
-                android:text="@string/loginDescription"/>
-            <TextView android:id="@+id/downwardArrow"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="50dp"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_marginTop="100dp"
-                android:drawableBottom="@drawable/ic_arrow_downward_black_24dp"
-                android:textFontWeight="500" />
+                android:text="LogIn" />
         </LinearLayout>
     </ScrollView>
 

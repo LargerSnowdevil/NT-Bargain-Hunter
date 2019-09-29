@@ -107,23 +107,8 @@
                 android:id="@+id/registerUserButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccentBlue"
                 android:onClick="register"
-                android:text="@string/register" />
-            <Button
-                android:id="@+id/cancelInput"
-                android:layout_width="match_parent"
-                android:textColor="@color/colorAccentBlue"
-                android:layout_height="wrap_content"
-                android:onClick="cancel"
-                android:text="@string/cancel" />
-            <Button
-                android:id="@+id/clearInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorAccentBlue"
-                android:onClick="clearForm"
-                android:text="@string/clear" />
+                android:text="Register" />
         </LinearLayout>
     </ScrollView>
     <android.support.design.widget.BottomNavigationView

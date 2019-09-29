@@ -2,8 +2,7 @@
 *.apk
 *.ap_
 *.aab
-*jar.xml
-*aar.xml
+
 # Files for the ART/Dalvik VM
 *.dex
 
@@ -14,7 +13,7 @@
 bin/
 gen/
 out/
-.idea/ 
+
 # Gradle files
 .gradle/
 build/
@@ -201,13 +200,3 @@ fabric.properties
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.gitignore.io/api/androidstudio
-App/app/.idea/gradle.xml
-App/app/.idea/runConfigurations.xml
-App/app/.idea/modules.xml
-App/app/.idea/workspace.xml
-App/app/.idea/misc.xml
-App/app/gradlew.bat
-App/app/.idea/codeStyles/Project.xml
-App/app/gradlew
-App/app/gradle/wrapper/gradle-wrapper.jar
-App/app/gradle/wrapper/gradle-wrapper.properties
