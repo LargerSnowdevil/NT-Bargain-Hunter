@@ -38,6 +38,12 @@
                 android:inputType="textEmailAddress" />
 
             <TextView
+                android:id="@+id/signInPageEmailProblemDescription"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textColor="#ff0033" />
+
+            <TextView
                 android:id="@+id/signInPasswordEntryDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,6 +56,12 @@
                 android:ems="10"
                 android:hint="Password"
                 android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/signInPasswordProblemDescription"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textColor="#ff0033" />
 
             <Button
                 android:id="@+id/signInButton"

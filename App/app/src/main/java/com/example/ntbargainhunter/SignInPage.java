@@ -6,8 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +28,8 @@ public class SignInPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText usernameEntry;
     private EditText passwordEntry;
+    private TextView usernameError;
+    private TextView passwordError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,8 @@ public class SignInPage extends AppCompatActivity {
 
         usernameEntry = findViewById(R.id.signInEmailEntry);
         passwordEntry = findViewById(R.id.signInPasswordEntry);
+        usernameError = findViewById(R.id.signInPageEmailProblemDescription);
+        passwordError = findViewById(R.id.signInPasswordProblemDescription);
     }
 
     @Override
@@ -60,25 +68,35 @@ public class SignInPage extends AppCompatActivity {
         //todo input validation
         if (username.equals("")) {
             valid = false;
-            //todo note on screen that username is empty
+            //note on screen that username is empty
+            usernameError.setText("Please enter an E-mail.");
+            usernameError.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }
         Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
         Matcher mat = pattern.matcher(username);
         if (!mat.matches()) {
             valid = false;
-            //todo the email is not a valid format
+            //the email is not a valid format
+            usernameError.setText("Please enter a valid address E-mail.");
+            usernameError.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }
-        if (username.length() > 20) {
+        if (username.length() > 30) {
             valid = false;
-            //todo note on screen that username is to long
+            //note on screen that username is to long
+            usernameError.setText("E-mail must be less than 30 characters.");
+            usernameError.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }
         if (password.equals("")) {
             valid = false;
-            //todo note on screen that password is empty
+            //note on screen that password is empty
+            passwordError.setText("Please enter a password.");
+            passwordError.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }
         if (password.length() > 20) {
             valid = false;
             //todo note on screen that password is to long
+            passwordError.setText("Password must be less than 20 characters.");
+            passwordError.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }
 
         if (valid) {
