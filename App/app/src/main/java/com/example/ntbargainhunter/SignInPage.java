@@ -100,14 +100,14 @@ public class SignInPage extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Intent i = new Intent(SignInPage.this, HomePage.class);
                     Toast.makeText(SignInPage.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    Log.d(TAG, "createUserWithEmail:success");
+                    //Log.d(TAG, "createUserWithEmail:success");
                     startActivity(i);
                 } else {
                     //todo what happens when the login fails
                     Toast.makeText(SignInPage.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
-            });
-        }
+            }
+        });
 
 
     }

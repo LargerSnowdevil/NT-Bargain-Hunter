@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.ntbargainhunter">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
     android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -30,9 +33,7 @@
             android:theme="@style/Base.Theme.AppCompat"/>  <!-- optional (needed if default theme has no action bar) -->
 
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/> <!--authorisation to connect to internet-->
+  
     <!--screen support-->
     <supports-screens android:smallScreens='true'
     android:normalScreens='true'
