@@ -65,7 +65,7 @@ public class PostBargainPage extends AppCompatActivity {
         setContentView(R.layout.activity_post_bargain_page);
 
         //navigation option for bottom menu
-        BottomNavigationView footerNavBar = findViewById(R.id.homePageFooterNav);
+        /*BottomNavigationView footerNavBar = findViewById(R.id.homePageFooterNav);
         footerNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -85,7 +85,7 @@ public class PostBargainPage extends AppCompatActivity {
                 }
                 return false;
             }
-        });
+        });*/
 
         //Posting an item
 

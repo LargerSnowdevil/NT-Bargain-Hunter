@@ -28,6 +28,7 @@ public class FavoriteBargain extends AppCompatActivity{
         this.getTitle();
         //navigation option for bottom menu
         BottomNavigationView footerNavBar = findViewById(R.id.homePageFooterNav);
+        footerNavBar.setSelectedItemId(R.id.menuActionFavourites);
         footerNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -40,7 +41,7 @@ public class FavoriteBargain extends AppCompatActivity{
                     Intent i = new Intent(FavoriteBargain.this, PostBargainPage.class);
                     startActivity(i);
                 } else if (menuItem.getItemId() == R.id.menuActionHome) {
-                    Intent i = new Intent(FavoriteBargain.this, FavoriteBargain.class);
+                    Intent i = new Intent(FavoriteBargain.this, HomePage.class);
                     startActivity(i);
                 } else {
                     System.out.println("ERROR:-- Footer navigation selection not recognized");
