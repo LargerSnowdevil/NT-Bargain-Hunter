@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "860295591595-bcbi4csf2k4hfiogrdulphn05ro4fluj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ntbargainhunter",
+            "certificate_hash": "20ebb97ce3b8ab625b12fe27c8624e2cdcad0024"
+          }
+        },
+        {
           "client_id": "860295591595-9memopdo2068ovj15plau8gsikg2l408.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
