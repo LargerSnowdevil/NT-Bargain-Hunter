@@ -24,9 +24,30 @@ public class FavoriteBargain extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_bargain_favorite);
-
-        //favoriteItems=findViewById(R.id.menuActionFavourites);
-      //  favoriteItems.setOnClickListener();
+        this.setTitle("Your favourite items");
+        this.getTitle();
+        //navigation option for bottom menu
+        BottomNavigationView footerNavBar = findViewById(R.id.homePageFooterNav);
+        footerNavBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.menuActionFavourites) {
+                    return true;
+                } else if (menuItem.getItemId() == R.id.menuActionAccount) {
+                    Intent i = new Intent(FavoriteBargain.this, UserBargainList.class);
+                    startActivity(i);
+                } else if (menuItem.getItemId() == R.id.menuActionPost) {
+                    Intent i = new Intent(FavoriteBargain.this, PostBargainPage.class);
+                    startActivity(i);
+                } else if (menuItem.getItemId() == R.id.menuActionHome) {
+                    Intent i = new Intent(FavoriteBargain.this, FavoriteBargain.class);
+                    startActivity(i);
+                } else {
+                    System.out.println("ERROR:-- Footer navigation selection not recognized");
+                }
+                return false;
+            }
+        });
     }
 
 }

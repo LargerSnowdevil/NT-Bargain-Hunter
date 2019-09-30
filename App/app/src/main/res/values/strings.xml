@@ -7,4 +7,13 @@
     <string name="catagory_4">Category 4</string>
     <string name="facebook_app_id">[APP_ID]</string>
     <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
+    <string name="app_favourite_title">Favourite Items</string>
+    <string name="cancel">Cancel Registration</string>
+    <string name="clear">Clear</string>
+    <string name="LogIn">Sign In</string>
+    <string name="register">Register</string>
+    <string name="LogInText">Sign in to get most out of NTBargainHunter</string>
+    <string name="loginDescription">Got something to post ?</string>
+    <string name="LogInFB">Sign In With Facebook</string>
+    <string name="LogInG">Sign In With Google</string>
 </resources>
