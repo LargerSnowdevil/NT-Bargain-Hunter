@@ -13,27 +13,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".UserBargainList"/>
-        <activity android:name=".DisplayBargainPage" />
-        <activity android:name=".PostBargainPage" android:parentActivityName=".HomePage" />
-        <activity android:name=".RegisterPage" />
-        <activity android:name=".SignInPage" />
-         <activity android:name=".FavoriteBargain"  android:label="Favourite" android:parentActivityName=".FavoriteBargain"/>
-        <activity android:name=".HomePage" >
-<!--        <activity-->
-<!--                android:name="com.theartofdev.edmodo.cropper.CropImageActivity"-->
-<!--                android:theme="@style/Base.Theme.AppCompat" />-->
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".SetupActivity" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name=".PostBargainPage"
+            android:parentActivityName=".MainActivity" />
+<!--        <activity android:name=".CommentsActivity"-->
+<!--            android:parentActivityName=".MainActivity"></activity>-->
+
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat"/>  <!-- optional (needed if default theme has no action bar) -->
 
     </application>
-  
+
     <!--screen support-->
     <supports-screens android:smallScreens='true'
     android:normalScreens='true'

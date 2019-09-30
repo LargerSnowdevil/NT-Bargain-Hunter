@@ -6,4 +6,9 @@
     <color name="colorAccentBlue">#0B0EC9</color>
     <color name="colorAccentWhite">#00AD5448</color>
     <color name="colorGrey">#c2c2c2</color>
+
+    <color name="whiteTransparentHalf">#80ffffff</color>
+
+    <color name="likeBtnGray">#747474</color>
+    <color name="likeBtnAccent">#F44336</color>
 </resources>
