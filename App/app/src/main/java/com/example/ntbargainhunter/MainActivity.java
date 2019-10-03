@@ -81,7 +81,11 @@ public class MainActivity extends AppCompatActivity {
 
                         case R.id.bottom_action_post:
 
-                            replaceFragment(postFragment, currentFragment);
+
+                            Intent newPostIntent = new Intent(MainActivity.this, PostBargainPage.class);
+                            startActivity(newPostIntent);
+
+                            //replaceFragment(postFragment, currentFragment);
                             return true;
 
                         case R.id.bottom_fav_account:
