@@ -16,6 +16,8 @@ android {
         testInstrumentationRunner "com.vogella.android.daggerjunitmockito.MockTestRunner"
          testOptions {
         unitTests.includeAndroidResources = true
+         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+         testInstrumentationRunnerArgument "size", "small"
     }
     }
     buildTypes {
