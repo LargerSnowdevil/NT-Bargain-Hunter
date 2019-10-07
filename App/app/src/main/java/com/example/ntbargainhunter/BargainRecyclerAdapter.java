@@ -114,6 +114,7 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
 
                     holder.updateLikesCount(count);
 
+
                 } else {
 
                     holder.updateLikesCount(0);
@@ -122,6 +123,23 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
 
             }
         });
+        //Get comments Count
+        firebaseFirestore.collection("Posts/" + bargainPostId + "/Comments").addSnapshotListener( new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
+
+                if(!documentSnapshots.isEmpty()){
+
+                    int count = documentSnapshots.size();
+                    holder.updateCommentCount(count);
+
+                } else {
+                    holder.updateCommentCount(0);
+                }
+
+            }
+        });
+
 
 
         //Get Likes
@@ -169,16 +187,16 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
             }
         });
 
-//        holder.blogCommentBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent commentIntent = new Intent(context, CommentsActivity.class);
-//                commentIntent.putExtra("blog_post_id", blogPostId);
-//                context.startActivity(commentIntent);
-//
-//            }
-//        });
+        holder.bargainCommentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent commentIntent = new Intent(context, CommentsActivity.class);
+                commentIntent.putExtra("bargain_post_id", bargainPostId);
+                context.startActivity(commentIntent);
+
+            }
+        });
 
     }
 
@@ -201,6 +219,7 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
 
         private ImageView bargainLikeBtn;
         private TextView bargainLikeCount;
+        private TextView bargainCommentCount;
 
         private ImageView bargainCommentBtn;
 
@@ -255,6 +274,14 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
 
         }
 
+
+
+        public void updateCommentCount(int count){
+
+            bargainCommentCount = mView.findViewById(R.id.bargain_comment_count);
+            bargainCommentCount.setText(count + " Comments");
+
+        }
         public void updateLikesCount(int count){
 
             bargainLikeCount = mView.findViewById(R.id.bargain_like_count);
