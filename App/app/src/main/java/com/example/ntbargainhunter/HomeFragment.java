@@ -94,8 +94,8 @@ public class HomeFragment extends Fragment {
 
                             if (doc.getType() == DocumentChange.Type.ADDED) {
 
-                                String blogPostId = doc.getDocument().getId();
-                                BargainPost bargainPost = doc.getDocument().toObject(BargainPost.class).withId(blogPostId);
+                                String bargainPostId = doc.getDocument().getId();
+                                BargainPost bargainPost = doc.getDocument().toObject(BargainPost.class).withId(bargainPostId);
 
                                 if (isFirstPageFirstLoad) {
 
@@ -147,8 +147,8 @@ public class HomeFragment extends Fragment {
 
                             if (doc.getType() == DocumentChange.Type.ADDED) {
 
-                                String blogPostId = doc.getDocument().getId();
-                                BargainPost bargainPost = doc.getDocument().toObject(BargainPost.class).withId(blogPostId);
+                                String bargainPostId = doc.getDocument().getId();
+                                BargainPost bargainPost = doc.getDocument().toObject(BargainPost.class).withId(bargainPostId);
                                 bargain_list.add(bargainPost);
 
                                 bargainRecyclerAdapter.notifyDataSetChanged();

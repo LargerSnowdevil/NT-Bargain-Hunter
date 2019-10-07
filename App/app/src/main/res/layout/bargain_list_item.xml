@@ -25,104 +25,129 @@
 
             <ImageView
                 android:id="@+id/bargain_like_btn"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bargain_desc"
+                android:layout_width="45dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toStartOf="@+id/bargain_comment_icon"
+                app:layout_constraintTop_toBottomOf="@+id/bargain_image"
                 app:srcCompat="@mipmap/action_like_gray" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/bargain_user_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/profile_placeholder"
+            <ImageView
+                android:id="@+id/bargain_image"
+                android:layout_width="385dp"
+                android:layout_height="173dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/bargain_date"
+                app:srcCompat="@drawable/image_placeholder" />
+
+            <ImageView
+                android:id="@+id/bargain_comment_icon"
+                android:layout_width="45dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bargain_image"
+                app:srcCompat="@mipmap/action_comment_icon" />
 
             <TextView
                 android:id="@+id/bargain_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="24dp"
                 android:text="Username"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/bargain_user_image"
+                app:layout_constraintEnd_toStartOf="@+id/bargain_user_image"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/bargain_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Blog Post Date"
-                app:layout_constraintStart_toEndOf="@+id/bargain_user_image"
+                android:layout_marginEnd="8dp"
+                android:text="dd/mm/yyyy"
+                app:layout_constraintEnd_toStartOf="@+id/bargain_user_image"
                 app:layout_constraintTop_toBottomOf="@+id/bargain_user_name" />
-
-            <ImageView
-                android:id="@+id/bargain_image"
-                android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="16dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bargain_user_image"
-                app:srcCompat="@drawable/image_placeholder" />
 
             <TextView
                 android:id="@+id/bargain_desc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:text=" "
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="285dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:text=" Description"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/bargain_image" />
 
             <TextView
-                android:id="@+id/bargain_like_count"
+                android:id="@+id/bargain_title"
+                android:layout_width="247dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="25dp"
+                android:capitalize="characters"
+                android:fontFamily="sans-serif"
+                android:text="Test Title"
+                android:textColor="#302B2B"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/bargain_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.366" />
+
+            <TextView
+                android:id="@+id/bargain_expiry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="0 Likes"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/bargain_like_btn"
+                android:layout_marginTop="15dp"
+                android:text="Unknown"
+                app:layout_constraintStart_toEndOf="@+id/editText"
                 app:layout_constraintTop_toBottomOf="@+id/bargain_desc" />
 
             <TextView
                 android:id="@+id/bargain_comment_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:text="0 Comments"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bargain_desc" />
+                app:layout_constraintTop_toBottomOf="@+id/bargain_comment_icon" />
 
-            <ImageView
-                android:id="@+id/bargain_comment_icon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <TextView
+                android:id="@+id/bargain_like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="35dp"
                 app:layout_constraintEnd_toStartOf="@+id/bargain_comment_count"
-                app:layout_constraintTop_toBottomOf="@+id/bargain_desc"
-                app:srcCompat="@mipmap/action_comment_icon" />
+                app:layout_constraintTop_toBottomOf="@+id/bargain_like_btn" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/bargain_user_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/profile_placeholder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="55dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="13dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Expiry:"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/bargain_expiry"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bargain_desc" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>

@@ -64,11 +64,14 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
         final String currentUserId = firebaseAuth.getCurrentUser().getUid();
 
         String desc_data = bargain_list.get(position).getDesc();
+        String title_data = bargain_list.get(position).getTitle();
+        String expiry_data = bargain_list.get(position).getExpiry();
         holder.setDescText(desc_data);
-
+        holder.setExpiryText(expiry_data);
+        holder.setTitleText(title_data);
         String image_url = bargain_list.get(position).getImage_url();
         String thumbUri = bargain_list.get(position).getImage_thumb();
-        holder.setBlogImage(image_url, thumbUri);
+        holder.setbargainImage(image_url, thumbUri);
 
         String user_id = bargain_list.get(position).getUser_id();
         //User Data will be retrieved here...
@@ -95,7 +98,7 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
 
         try {
             long millisecond = bargain_list.get(position).getTimestamp().getTime();
-            String dateString = DateFormat.format("MM/dd/yyyy", new Date(millisecond)).toString();
+            String dateString = DateFormat.format("dd/mm/yyyy", new Date(millisecond)).toString();
             holder.setTime(dateString);
         } catch (Exception e) {
 
@@ -211,6 +214,8 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
         private View mView;
 
         private TextView descView;
+        private TextView expiryView;
+        private TextView titleView;
         private ImageView bargainImageView;
         private TextView bargainDate;
 
@@ -239,8 +244,20 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
             descView.setText(descText);
 
         }
+        public void setTitleText(String titleText){
 
-        public void setBlogImage(String downloadUri, String thumbUri){
+            titleView = mView.findViewById(R.id.bargain_title);
+            titleView.setText(titleText);
+
+        }
+        public void setExpiryText(String expiryText){
+
+            expiryView = mView.findViewById(R.id.bargain_expiry);
+            expiryView.setText(expiryText);
+
+        }
+
+        public void setbargainImage(String downloadUri, String thumbUri){
 
             bargainImageView = mView.findViewById(R.id.bargain_image);
 
@@ -279,13 +296,13 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
         public void updateCommentCount(int count){
 
             bargainCommentCount = mView.findViewById(R.id.bargain_comment_count);
-            bargainCommentCount.setText(count + " Comments");
+            bargainCommentCount.setText(count + "");
 
         }
         public void updateLikesCount(int count){
 
             bargainLikeCount = mView.findViewById(R.id.bargain_like_count);
-            bargainLikeCount.setText(count + " Likes");
+            bargainLikeCount.setText(count + "");
 
         }
 

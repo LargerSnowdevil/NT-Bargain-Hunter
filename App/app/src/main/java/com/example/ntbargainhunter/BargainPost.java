@@ -5,15 +5,18 @@ import java.util.Date;
 
 public class BargainPost extends BargainPostId {
 
-    public String user_id, image_url, desc, image_thumb;
+    public String user_id, image_url, category, desc, expiry, image_thumb, title;
     public Date timestamp;
 
     public BargainPost() {}
 
-    public BargainPost(String user_id, String image_url, String desc, String image_thumb, Date timestamp) {
+    public BargainPost(String user_id, String image_url, String category, String desc, String expiry, String title, String image_thumb, Date timestamp) {
         this.user_id = user_id;
+        this.title = title;
         this.image_url = image_url;
         this.desc = desc;
+        this.category = category;
+        this.expiry = expiry;
         this.image_thumb = image_thumb;
         this.timestamp = timestamp;
     }
@@ -34,12 +37,32 @@ public class BargainPost extends BargainPostId {
         this.image_url = image_url;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) { this.title = title; }
+
+    public String getExpiry() {
+        return expiry;
+    }
+
+    public void setExpiry(String expiry) { this.expiry = expiry; }
+
     public String getDesc() {
         return desc;
     }
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getImage_thumb() {

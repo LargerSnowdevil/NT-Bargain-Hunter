@@ -20,9 +20,9 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="397dp"
+        android:layout_height="225dp"
+        android:layout_marginTop="16dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,35 +37,17 @@
         android:indeterminate="true"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/new_post_toolbar" />
 
-<!--    <EditText-->
-<!--        android:id="@+id/titleText"-->
-<!--        android:layout_width="360dp"-->
-<!--        android:layout_height="56dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        android:autofillHints=""-->
-<!--        android:background="@drawable/input_outline"-->
-<!--        android:ems="10"-->
-<!--        android:hint="Title"-->
-<!--        android:inputType="textPersonName"-->
-<!--        android:padding="15dp"-->
-<!--        android:visibility="visible"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/imageButton"-->
-<!--        tools:targetApi="o"-->
-<!--        tools:visibility="visible" />-->
 
     <EditText
         android:id="@+id/new_post_desc"
         android:layout_width="360dp"
         android:layout_height="57dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:autofillHints=""
         android:background="@drawable/input_outline"
@@ -74,11 +56,59 @@
         android:inputType="textPersonName"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_post_title" />
+
+    <EditText
+        android:id="@+id/new_post_expiry"
+        android:layout_width="360dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints=""
+        android:background="@drawable/input_outline"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="Expiry Date"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_post_desc" />
+
+    <EditText
+        android:id="@+id/new_post_title"
+        android:layout_width="360dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints=""
+        android:background="@drawable/input_outline"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
-
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="360dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="27dp"
+        android:background="@drawable/input_outline"
+        android:padding="8dp"
+        android:prompt="@string/category_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_post_expiry" />
 
     <Button
         android:id="@+id/post_btn"
@@ -93,5 +123,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>
