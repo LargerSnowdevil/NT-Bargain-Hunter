@@ -101,16 +101,16 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-            addPostBtn = findViewById(R.id.add_post_btn);
-            addPostBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Intent newPostIntent = new Intent(MainActivity.this, PostBargainPage.class);
-                    startActivity(newPostIntent);
-
-                }
-            });
+//            addPostBtn = findViewById(R.id.add_post_btn);
+//            addPostBtn.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                    Intent newPostIntent = new Intent(MainActivity.this, PostBargainPage.class);
+//                    startActivity(newPostIntent);
+//
+//                }
+//            });
 
         }
 
