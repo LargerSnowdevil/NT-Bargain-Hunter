@@ -63,17 +63,17 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
         final String bargainPostId = bargain_list.get(position).BargainPostId;
         final String currentUserId = firebaseAuth.getCurrentUser().getUid();
 
-        String desc_data = bargain_list.get(position).getDesc();
-        String title_data = bargain_list.get(position).getTitle();
-        String expiry_data = bargain_list.get(position).getExpiry();
-        holder.setDescText(desc_data);
-        holder.setExpiryText(expiry_data);
+        final String desc_data = bargain_list.get(position).getDesc();
+        final String title_data = bargain_list.get(position).getTitle();
+        final String expiry_data = bargain_list.get(position).getExpiry();
+//        holder.setDescText(desc_data);
+//        holder.setExpiryText(expiry_data);
         holder.setTitleText(title_data);
-        String image_url = bargain_list.get(position).getImage_url();
-        String thumbUri = bargain_list.get(position).getImage_thumb();
+        final String image_url = bargain_list.get(position).getImage_url();
+        final String thumbUri = bargain_list.get(position).getImage_thumb();
         holder.setbargainImage(image_url, thumbUri);
 
-        String user_id = bargain_list.get(position).getUser_id();
+        final String user_id = bargain_list.get(position).getUser_id();
         //User Data will be retrieved here...
         firebaseFirestore.collection("Users").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -81,10 +81,10 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
 
                 if(task.isSuccessful()){
 
-                    String userName = task.getResult().getString("name");
-                    String userImage = task.getResult().getString("image");
+                    final String userName = task.getResult().getString("name");
+                    final String userImage = task.getResult().getString("image");
 
-                    holder.setUserData(userName, userImage);
+                    holder.setUserData(userName);
 
 
                 } else {
@@ -201,6 +201,20 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
             }
         });
 
+        holder.bargainImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent expandedIntent = new Intent(context, bargainActivity.class);
+                expandedIntent.putExtra("bargain_post_id", bargainPostId);
+                expandedIntent.putExtra("bargain_post_title", title_data);
+                expandedIntent.putExtra("bargain_post_desc", desc_data);
+                expandedIntent.putExtra("bargain_post_expiry", expiry_data);
+                context.startActivity(expandedIntent);
+
+            }
+        });
+
     }
 
 
@@ -238,24 +252,24 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
 
         }
 
-        public void setDescText(String descText){
-
-            descView = mView.findViewById(R.id.bargain_desc);
-            descView.setText(descText);
-
-        }
+//        public void setDescText(String descText){
+//
+//            descView = mView.findViewById(R.id.bargain_desc);
+//            descView.setText(descText);
+//
+//        }
         public void setTitleText(String titleText){
 
             titleView = mView.findViewById(R.id.bargain_title);
             titleView.setText(titleText);
 
         }
-        public void setExpiryText(String expiryText){
-
-            expiryView = mView.findViewById(R.id.bargain_expiry);
-            expiryView.setText(expiryText);
-
-        }
+//        public void setExpiryText(String expiryText){
+//
+//            expiryView = mView.findViewById(R.id.bargain_expiry);
+//            expiryView.setText(expiryText);
+//
+//        }
 
         public void setbargainImage(String downloadUri, String thumbUri){
 
@@ -277,17 +291,17 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
 
         }
 
-        public void setUserData(String name, String image){
+        public void setUserData(String name){
 
-            bargainUserImage = mView.findViewById(R.id.bargain_user_image);
+//            bargainUserImage = mView.findViewById(R.id.bargain_user_image);
             bargainUserName = mView.findViewById(R.id.bargain_user_name);
 
-            bargainUserName.setText(name);
+            bargainUserName.setText(name + " posted");
 
             RequestOptions placeholderOption = new RequestOptions();
             placeholderOption.placeholder(R.drawable.profile_placeholder);
 
-            Glide.with(context).applyDefaultRequestOptions(placeholderOption).load(image).into(bargainUserImage);
+//            Glide.with(context).applyDefaultRequestOptions(placeholderOption).load(image).into(bargainUserImage);
 
         }
 

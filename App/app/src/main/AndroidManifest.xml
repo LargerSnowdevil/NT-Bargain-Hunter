@@ -27,6 +27,8 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".CommentsActivity"
             android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".bargainActivity"
+            android:parentActivityName=".MainActivity"></activity>
 
         <activity
             android:name=".MainActivity"
