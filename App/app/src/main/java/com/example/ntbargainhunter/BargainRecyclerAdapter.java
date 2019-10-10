@@ -72,7 +72,9 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
         final String image_url = bargain_list.get(position).getImage_url();
         final String thumbUri = bargain_list.get(position).getImage_thumb();
         holder.setbargainImage(image_url, thumbUri);
-
+        long millisecond = bargain_list.get(position).getTimestamp().getTime();
+        final String dateString = DateFormat.format("dd/mm/yyyy", new Date(millisecond)).toString();
+        holder.setTime(dateString);
         final String user_id = bargain_list.get(position).getUser_id();
         //User Data will be retrieved here...
         firebaseFirestore.collection("Users").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -96,15 +98,7 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
             }
         });
 
-        try {
-            long millisecond = bargain_list.get(position).getTimestamp().getTime();
-            String dateString = DateFormat.format("dd/mm/yyyy", new Date(millisecond)).toString();
-            holder.setTime(dateString);
-        } catch (Exception e) {
 
-            Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_SHORT).show();
-
-        }
 
         //Get Likes Count
         firebaseFirestore.collection("Posts/" + bargainPostId + "/Likes").addSnapshotListener( new EventListener<QuerySnapshot>() {
@@ -210,6 +204,12 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
                 expandedIntent.putExtra("bargain_post_title", title_data);
                 expandedIntent.putExtra("bargain_post_desc", desc_data);
                 expandedIntent.putExtra("bargain_post_expiry", expiry_data);
+                expandedIntent.putExtra("bargain_post_user", user_id);
+                expandedIntent.putExtra("bargain_post_imgURI", image_url);
+                expandedIntent.putExtra("bargain_post_thumbURI", thumbUri);
+                expandedIntent.putExtra("bargain_post_date", dateString);
+
+
                 context.startActivity(expandedIntent);
 
             }
