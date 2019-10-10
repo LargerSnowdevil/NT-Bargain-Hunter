@@ -3,6 +3,7 @@ package com.example.ntbargainhunter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -66,8 +68,7 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
         final String desc_data = bargain_list.get(position).getDesc();
         final String title_data = bargain_list.get(position).getTitle();
         final String expiry_data = bargain_list.get(position).getExpiry();
-//        holder.setDescText(desc_data);
-//        holder.setExpiryText(expiry_data);
+
         holder.setTitleText(title_data);
         final String image_url = bargain_list.get(position).getImage_url();
         final String thumbUri = bargain_list.get(position).getImage_thumb();
@@ -76,6 +77,11 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
         final String dateString = DateFormat.format("dd/mm/yyyy", new Date(millisecond)).toString();
         holder.setTime(dateString);
         final String user_id = bargain_list.get(position).getUser_id();
+
+
+
+
+
         //User Data will be retrieved here...
         firebaseFirestore.collection("Users").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override

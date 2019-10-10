@@ -31,7 +31,7 @@ public class HomeFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
     private BargainRecyclerAdapter bargainRecyclerAdapter;
-
+    private String current_user_id;
     private DocumentSnapshot lastVisible;
     private Boolean isFirstPageFirstLoad = true;
 
@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
         bargain_list_view.setLayoutManager(new LinearLayoutManager(container.getContext()));
         bargain_list_view.setAdapter(bargainRecyclerAdapter);
         bargain_list_view.setHasFixedSize(true);
-
+        current_user_id = firebaseAuth.getCurrentUser().getUid();
         if(firebaseAuth.getCurrentUser() != null) {
 
             firebaseFirestore = FirebaseFirestore.getInstance();
@@ -131,8 +131,7 @@ public class HomeFragment extends Fragment {
 
         if(firebaseAuth.getCurrentUser() != null) {
 
-            Query nextQuery = firebaseFirestore.collection("Posts")
-                    .orderBy("timestamp", Query.Direction.DESCENDING)
+            Query nextQuery = firebaseFirestore.collection("Posts").orderBy("timestamp", Query.Direction.DESCENDING)
                     .startAfter(lastVisible)
                     .limit(3);
 
