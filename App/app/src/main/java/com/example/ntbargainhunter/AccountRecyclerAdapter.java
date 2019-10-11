@@ -81,7 +81,7 @@ public class AccountRecyclerAdapter extends RecyclerView.Adapter<AccountRecycler
         final String thumbUri = bargain_list.get(position).getImage_thumb();
         holder.setbargainImage(image_url, thumbUri);
         long millisecond = bargain_list.get(position).getTimestamp().getTime();
-        final String dateString = DateFormat.format("dd/mm/yyyy", new Date(millisecond)).toString();
+        final String dateString = DateFormat.format("dd/MM/yyyy", new Date(millisecond)).toString();
         holder.setTime(dateString);
         final String user_id = bargain_list.get(position).getUser_id();
         //User Data will be retrieved here...
