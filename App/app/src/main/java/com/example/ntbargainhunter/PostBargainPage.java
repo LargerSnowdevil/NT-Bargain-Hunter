@@ -109,6 +109,7 @@ public class PostBargainPage extends AppCompatActivity implements OnItemSelected
         categories.add("Automobile");
         categories.add("Fashion");
         categories.add("Food");
+        categories.add("Technology");
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);

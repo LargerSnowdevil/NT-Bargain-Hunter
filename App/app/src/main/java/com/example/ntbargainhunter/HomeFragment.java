@@ -55,6 +55,9 @@ public class HomeFragment extends Fragment {
         bargain_list_view.setLayoutManager(new LinearLayoutManager(container.getContext()));
         bargain_list_view.setAdapter(bargainRecyclerAdapter);
         bargain_list_view.setHasFixedSize(true);
+
+
+
         current_user_id = firebaseAuth.getCurrentUser().getUid();
         if(firebaseAuth.getCurrentUser() != null) {
 
@@ -126,6 +129,8 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
+
+
 
     public void loadMorePost(){
 

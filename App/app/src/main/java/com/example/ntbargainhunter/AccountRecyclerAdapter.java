@@ -1,8 +1,10 @@
 package com.example.ntbargainhunter;
 
+import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -60,12 +62,18 @@ public class AccountRecyclerAdapter extends RecyclerView.Adapter<AccountRecycler
         return new ViewHolder(view);
     }
 
+//    @Override
+//    public void onResume() {
+//
+//    }
+
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         holder.setIsRecyclable(false);
 
         final String bargainPostId = bargain_list.get(position).BargainPostId;
+
         final String currentUserId = firebaseAuth.getCurrentUser().getUid();
         final String title_data = bargain_list.get(position).getTitle();
         holder.setTitleText(title_data);
@@ -78,10 +86,13 @@ public class AccountRecyclerAdapter extends RecyclerView.Adapter<AccountRecycler
         final String user_id = bargain_list.get(position).getUser_id();
         //User Data will be retrieved here...
 
+
         //Account DeleteFeature
         holder.deletePost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
 
                 firebaseFirestore.collection("Posts").document(bargainPostId)
                         .delete()
@@ -90,6 +101,12 @@ public class AccountRecyclerAdapter extends RecyclerView.Adapter<AccountRecycler
                             public void onSuccess(Void aVoid) {
 
                                 Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                                bargain_list.remove(position);
+                                notifyItemRemoved(position);
+                                notifyItemRangeChanged(position, bargain_list.size());
+                               AccountRecyclerAdapter.this.notifyDataSetChanged();
+
+
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -99,13 +116,19 @@ public class AccountRecyclerAdapter extends RecyclerView.Adapter<AccountRecycler
                             }
                         });
 
-
             }
 
         });
 
-
     }
+
+
+
+
+
+
+
+
 
 
     @Override
@@ -120,8 +143,8 @@ public class AccountRecyclerAdapter extends RecyclerView.Adapter<AccountRecycler
         private TextView titleView;
         private ImageView bargainImageView;
         private TextView bargainDate;
-        private ImageView deletePost;
 
+        private ImageView deletePost;
 
         public ViewHolder(View itemView) {
             super(itemView);

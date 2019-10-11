@@ -1,13 +1,19 @@
 package com.example.ntbargainhunter;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -20,6 +26,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.facebook.login.widget.ProfilePictureView.TAG;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +39,7 @@ public class AccountFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
     private AccountRecyclerAdapter accountRecyclerAdapter;
+    private ImageView deletePost;
     private String current_user_id;
     private DocumentSnapshot lastVisible;
     private Boolean isFirstPageFirstLoad = true;
@@ -55,6 +64,7 @@ public class AccountFragment extends Fragment {
         account_list_view.setLayoutManager(new LinearLayoutManager(container.getContext()));
         account_list_view.setAdapter(accountRecyclerAdapter);
         account_list_view.setHasFixedSize(true);
+
         current_user_id = firebaseAuth.getCurrentUser().getUid();
         if(firebaseAuth.getCurrentUser() != null) {
 
@@ -126,6 +136,22 @@ public class AccountFragment extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
+
+    public void refreshBargain(){
+        accountRecyclerAdapter.notifyDataSetChanged();
+
+    }
+
+
+    interface RefreshFragment{
+        public void mainAct();
+
+
+    }
+
+
+
+
 
     public void loadMorePost(){
 

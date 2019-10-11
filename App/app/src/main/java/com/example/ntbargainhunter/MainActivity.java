@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private Toolbar mainToolbar;
     private FirebaseAuth mAuth;
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton addPostBtn;
 
     private BottomNavigationView mainbottomNav;
-
+    public List<BargainPost> bargain_list;
     private HomeFragment homeFragment;
     private PostFragment postFragment;
     private AccountFragment accountFragment;
@@ -70,8 +72,10 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
 
                         case R.id.bottom_action_home:
-
-                            replaceFragment(homeFragment, currentFragment);
+                            Intent newPostInten = new Intent(MainActivity.this, MainActivity.class);
+                            startActivity(newPostInten);
+                            MainActivity.this.overridePendingTransition(0,0);
+                            //replaceFragment(homeFragment, currentFragment);
                             return true;
 
                         case R.id.bottom_action_account:
