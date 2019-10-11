@@ -234,6 +234,7 @@ public class SetupActivity extends AppCompatActivity {
         userMap.put("name", user_name);
         userMap.put("image", download_uri.toString());
 
+
         firebaseFirestore.collection("Users").document(user_id).set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

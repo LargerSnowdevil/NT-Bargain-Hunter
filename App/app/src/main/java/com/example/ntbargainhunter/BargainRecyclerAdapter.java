@@ -126,6 +126,9 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
 
             }
         });
+
+
+
         //Get comments Count
         firebaseFirestore.collection("Posts/" + bargainPostId + "/Comments").addSnapshotListener( new EventListener<QuerySnapshot>() {
             @Override
@@ -146,7 +149,7 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
 
 
         //Get Likes
-        firebaseFirestore.collection("Posts/" + bargainPostId + "/Likes").document(currentUserId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        firebaseFirestore.collection("Users/" + currentUserId + "/Favourites").document(bargainPostId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(DocumentSnapshot documentSnapshot, FirebaseFirestoreException e) {
 
@@ -187,6 +190,34 @@ public class BargainRecyclerAdapter extends RecyclerView.Adapter<BargainRecycler
 
                     }
                 });
+
+
+
+                firebaseFirestore.collection("Users/" + currentUserId + "/Favourites").document(bargainPostId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                        if(!task.getResult().exists()){
+
+                            Map<String, Object> likesMap = new HashMap<>();
+                            likesMap.put("timestamp", FieldValue.serverTimestamp());
+
+                            firebaseFirestore.collection("Users/" + currentUserId + "/Favourites").document(bargainPostId).set(likesMap);
+
+                        } else {
+
+                            firebaseFirestore.collection("Users/" + currentUserId + "/Favourites").document(bargainPostId).delete();
+
+                        }
+
+                    }
+                });
+
+
+
+
+
+
             }
         });
 

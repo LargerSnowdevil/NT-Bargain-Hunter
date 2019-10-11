@@ -176,6 +176,31 @@ public class bargainActivity extends AppCompatActivity {
 
                     }
                 });
+
+                firebaseFirestore.collection("Users/" + current_user_id + "/Favourites").document(bargain_post_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                        if(!task.getResult().exists()){
+
+                            Map<String, Object> likesMap = new HashMap<>();
+                            likesMap.put("timestamp", FieldValue.serverTimestamp());
+
+                            firebaseFirestore.collection("Users/" + current_user_id + "/Favourites").document(bargain_post_id).set(likesMap);
+
+                        } else {
+
+                            firebaseFirestore.collection("Users/" + current_user_id + "/Favourites").document(bargain_post_id).delete();
+
+                        }
+
+                    }
+                });
+
+
+
+
+
             }
         });
 
