@@ -2,7 +2,6 @@ package com.example.ntbargainhunter;
 
 
 import android.support.test.filters.MediumTest;
-import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,12 +23,19 @@ import static org.junit.Assert.assertThat;
 public class MainActivityTest {
 
    @Rule
-   public ActivityTestRule<MainActivity> rule  = new  ActivityTestRule<>(MainActivity.class);
+   // public MainActivityTest rule  = new MainActivityTest();
+   public PostBargainPage rule = new PostBargainPage();
 
+    private android.content.Context Context;
+    @Rule
+    public PostUserComment usercomment = new PostUserComment(Context);
+
+
+    //ensures list view is present
     @Test
     public void checkEnsureListViewIsPresent() throws Exception {
-        MainActivity activity = rule.getActivity();
-        View viewById = activity.findViewById(R.id.listview);
+        //  MainActivity activity = rule.getActivity();
+        View viewById = rule.findViewById(R.id.bargain_list_view);
         assertThat(viewById,notNullValue());
         assertThat(viewById, instanceOf(ListView.class));
         ListView listView = (ListView) viewById;
