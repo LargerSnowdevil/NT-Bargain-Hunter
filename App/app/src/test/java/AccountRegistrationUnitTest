@@ -8,9 +8,11 @@ import static org.junit.Assert.*;
 import com.google.common.truth.Truth.assertThat;
 import org.junit.Test;
 
-public class EmailValidatorTest {
+import org.junit.runner.RunWith;
+
+@RunWith(AndroidJUnit4.class)
+public class EmailValidatorTest extends AndroidJUnit4 {
     @Test
-    
     // check if user enters a valid email address and valid password it will pass the registraion
     
     public void emailValidator_CorrectEmailSimple_ReturnsTrue() {
