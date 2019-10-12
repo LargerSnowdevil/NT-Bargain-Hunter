@@ -162,10 +162,14 @@ public class FavouriteFragment extends Fragment {
             firebaseFirestore.collection("Posts").document(postList.get(i)).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
                     if (task.isSuccessful()) {
+
                         favPosts.add(task.getResult());
+
                     }
                     if (favPosts.size() == postList.size()) {
+
                         displayFavPosts(favPosts);
                     }
                 }
@@ -175,6 +179,7 @@ public class FavouriteFragment extends Fragment {
     }
 
     private void displayFavPosts(List<DocumentSnapshot> favPosts) {
+
         if (isFirstPageFirstLoad) {
             lastVisible = favPosts.get(favPosts.size() -1);
             bargain_list.clear();
