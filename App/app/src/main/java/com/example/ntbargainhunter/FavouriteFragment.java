@@ -181,13 +181,15 @@ public class FavouriteFragment extends Fragment {
         }
         i = 0;
         while (i < favPosts.size()) {
-            BargainPost post = favPosts.get(i).toObject(BargainPost.class).withId(favPosts.get(i).getId());
-            if (isFirstPageFirstLoad) {
-                bargain_list.add(post);
-            } else {
-                bargain_list.add(0, post);
+            if (favPosts.get(i).exists()) {
+                BargainPost post = favPosts.get(i).toObject(BargainPost.class).withId(favPosts.get(i).getId());
+                if (isFirstPageFirstLoad) {
+                    bargain_list.add(post);
+                } else {
+                    bargain_list.add(0, post);
+                }
+                bargainRecyclerAdapter.notifyDataSetChanged();
             }
-            bargainRecyclerAdapter.notifyDataSetChanged();
             i++;
         }
         isFirstPageFirstLoad = false;
