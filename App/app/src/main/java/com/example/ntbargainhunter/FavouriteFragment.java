@@ -83,10 +83,9 @@ public class FavouriteFragment extends Fragment {
                 }
             });
 
-            //todo ---------------------------------------------------------------------------------
-
             final ArrayList<String> favPosts = new ArrayList<>();
 
+            //get the names of all the posts that the logged-in user has liked put them in an array then pass them on
             firebaseFirestore.collection("Users/").document(firebaseAuth.getCurrentUser().getUid()).collection("/Favourites").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -95,13 +94,9 @@ public class FavouriteFragment extends Fragment {
                             favPosts.add(document.getId());
                         }
                         getFavPosts(favPosts);
-                    } else {
-                        //todo if the favourites cant be found
                     }
                 }
             });
-
-            //todo ---------------------------------------------------------------------------------
 
             /*Query firstQuery = firebaseFirestore.collection("Posts").orderBy("timestamp", Query.Direction.DESCENDING).limit(3);
             firstQuery.addSnapshotListener(getActivity(), new EventListener<QuerySnapshot>() {
@@ -154,6 +149,7 @@ public class FavouriteFragment extends Fragment {
         return view;
     }
 
+    //take an array of post names and create an array of the post documents they refer to, then pass that array on
     private void getFavPosts(final ArrayList<String> postList) {
         final List<DocumentSnapshot> favPosts = new ArrayList<>();
         i = 0;
@@ -178,6 +174,7 @@ public class FavouriteFragment extends Fragment {
         }
     }
 
+    //take an array of the posts that a user has liked and put them into the recyclerview on page
     private void displayFavPosts(List<DocumentSnapshot> favPosts) {
 
         if (isFirstPageFirstLoad) {
